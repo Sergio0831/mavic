@@ -1,0 +1,100 @@
+@import "animation.css";
+
+.mavic {
+  max-width: 640px;
+  height: 400px;
+  background: #76aa31;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.mavic__title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #fff;
+  transition: all 1s ease;
+}
+
+.phone__title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #fff;
+  display: none;
+  transition: all 1s ease;
+}
+
+.mavic:hover .mavic__title {
+  display: none;
+}
+
+.mavic:hover .phone__title {
+  display: block;
+}
+
+.mavic-off {
+  animation-name: mavic-off;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.mavic-on {
+  animation-name: mavic-on;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.mavic:after,
+.mavic:before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  transition: all 1s ease;
+}
+
+.mavic::after {
+  background: url(../img/iphone-front.png);
+  right: 20%;
+  transform: translateY(150%) rotate(20deg);
+  animation-duration: 0.5s;
+}
+
+.mavic::before {
+  background: url(../img/iphone-back.png);
+  left: 20%;
+  transform: translateY(150%) rotate(-20deg);
+  animation-duration: 0.5s;
+}
+
+.mavic:hover::after,
+.mavic:hover::before {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.phone-on::after {
+  animation-name: front-on;
+}
+
+.phone-off::after {
+  animation-name: front-off;
+}
+.phone-on::before {
+  animation-name: back-on;
+}
+
+.phone-off::before {
+  animation-name: back-off;
+}
